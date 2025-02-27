@@ -4,7 +4,7 @@ OmniMind è un'applicazione di meditazione minimalista, che aiuta gli utenti a t
 Offre un **timer personalizzato** per sessioni di 1, 5 e 10 minuti, con **musica rilassante** di sottofondo.  
 
 ## 🚀 Demo Online
-🔗 **[OmniMind su Netlify](https://il-tuo-link.netlify.app/)**  
+🔗 **[OmniMind su Netlify](https://omnimind.netlify.app/)**  
 _(Aggiorna il link dopo il deploy)_
 
 ---
