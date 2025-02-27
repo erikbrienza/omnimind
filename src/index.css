@@ -1,42 +1,108 @@
+/* Stili Globali */
+* {
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
 body {
-  background-color: #025669;
+  background: linear-gradient(to bottom, #025669, #012d3c);
   color: white;
-  font-family: 'Arial', sans-serif;
+  font-family: Arial, sans-serif;
   text-align: center;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+  overflow-x: hidden; /* Evita scrolling orizzontale */
+}
+
+.header {
+  width: 100%;
+  padding: 10px 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  margin: 0;
 }
 
-.container {
+.logo {
+  width: 80%;
+  margin-top: 20%;
+  height: auto;
+}
+
+.logo:hover {
+  transform: rotate(360deg) scale(1.1);
+  transition: 0.5s;
+
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 80px); /* Evita che il logo occupi troppo spazio */
+  width: 100%;
+  max-width: 800px;
+  padding: 20px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 3.5rem;
+  font-weight: bold;
+}
+
+p {
+  font-size: 1.5rem;
+  max-width: 600px; /* Evita che il testo sia troppo largo */
+}
+
+/* Contenitori */
+.meditation, .timer {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 90%;
-  max-width: 600px;
+  max-width: 800px; /* Larghezza massima su desktop */
   padding: 20px;
 }
 
+/* Testo */
 h1 {
-  font-size: 2.5rem;
+  font-size: 3rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 10px;
 }
 
 p {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Pulsanti */
+.button-container {
+  display: flex;
+  flex-wrap: wrap; /* Permette di adattarsi su schermi piccoli */
+  justify-content: center;
+  gap: 15px;
 }
 
 .button {
-  background: none;
-  border: 2px solid white;
+  background: transparent;
+  border: 3px solid white;
   color: white;
-  padding: 12px 24px;
-  font-size: 1.2rem;
+  padding: 15px 40px;
+  font-size: 1.5rem;
   cursor: pointer;
-  transition: all 0.3s;
-  border-radius: 5px;
+  border-radius: 30px;
+  transition: 0.3s;
 }
 
 .button:hover {
@@ -44,30 +110,75 @@ p {
   color: #025669;
 }
 
-.button-container {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
+/* Timer */
+.timer p {
+  font-size: 4rem;
+  font-weight: bold;
   margin-top: 20px;
 }
 
-.timer {
-  font-size: 3rem;
-  font-weight: bold;
-}
-
+/* RESPONSIVE DESIGN */
 @media screen and (max-width: 768px) {
   h1 {
+    font-size: 5rem;
+  }
+
+  p {
+    font-size: 2rem;
+  }
+
+  .button {
+    font-size: 2rem;
+    margin-top: 10%;
+    padding: 12px 30px;
+  }
+
+  .timer p {
     font-size: 3rem;
   }
+
+  .logo {
+    width: 100%;
+    margin-top: 30%;
+  }
+
+  .hero {
+    height: calc(100vh - 60px); /* Riduce lo spazio su mobile */
+  }
+
+  .meditation, .timer {
+    width: 95%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+
   p {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
+
   .button {
-    font-size: 1.5rem;
-    padding: 15px 30px;
+    font-size: 1rem;
+    padding: 10px 25px;
   }
-  .timer {
-    font-size: 4rem;
+
+  .timer p {
+    font-size: 2.5rem;
+  }
+
+  logo {
+    width: 100%;
+    margin-top: 30%;
+  }
+
+  .hero {
+    height: calc(100vh - 50px); /* Riduce lo spazio su mobile */
+  }
+
+  .meditation, .timer {
+    width: 100%;
   }
 }

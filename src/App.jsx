@@ -1,14 +1,15 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
+import Header from "./components/Header";
+import Hero from "./components/Hero";
 import Meditation from "./pages/Meditation";
-import Info from "./pages/Info";
 
 function App() {
   return (
     <div className="app">
+      <Header />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Hero />} />
         <Route path="/meditation" element={<Meditation />} />
       </Routes>
     </div>

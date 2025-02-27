@@ -1,41 +1,25 @@
-import React, { useState, useEffect } from "react";
-import "../index.css";
-import backgroundMusic from "../assets/meditation-music.mp3";
+import React, { useState } from "react";
+import Timer from "../components/Timer";
 
-function Meditation() {
-  const [time, setTime] = useState(300);
-  const [isRunning, setIsRunning] = useState(false);
-  const [audio] = useState(new Audio(backgroundMusic));
-
-  useEffect(() => {
-    if (!isRunning) return;
-    audio.play();
-    audio.loop = true;
-    
-    const timer = setInterval(() => {
-      setTime((prev) => (prev > 0 ? prev - 1 : 0));
-    }, 1000);
-    return () => {
-      clearInterval(timer);
-      audio.pause();
-      audio.currentTime = 0;
-    };
-  }, [isRunning, audio]);
+const Meditation = () => {
+  const [selectedTime, setSelectedTime] = useState(null);
 
   return (
-    <div className="container">
-      <h1>Sessione di Meditazione</h1>
-      <p className="timer">{Math.floor(time / 60)}:{String(time % 60).padStart(2, '0')}</p>
-      <div className="button-container">
-        <button className="button" onClick={() => setIsRunning(!isRunning)}>
-          {isRunning ? "Pausa" : "Inizia"}
-        </button>
-        <button className="button" onClick={() => { setTime(300); setIsRunning(false); }}>
-          Reset
-        </button>
-      </div>
+    <div className="meditation">
+      {selectedTime ? (
+        <Timer duration={selectedTime} />
+      ) : (
+        <>
+          <h1>Seleziona la durata della meditazione</h1>
+          <div className="button-container">
+            <button onClick={() => setSelectedTime(1)} className="button">1 Minuto</button>
+            <button onClick={() => setSelectedTime(5)} className="button">5 Minuti</button>
+            <button onClick={() => setSelectedTime(10)} className="button">10 Minuti</button>
+          </div>
+        </>
+      )}
     </div>
   );
-}
+};
 
 export default Meditation;
